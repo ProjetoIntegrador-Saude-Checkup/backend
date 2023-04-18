@@ -21,7 +21,7 @@ public class Tema {
 	private String assunto;
 	
 	@NotBlank(message = "O Atributo status é Obrigatório!")
-	private short status;
+	private boolean status;
 
 	public Long getId() {
 		return id;
@@ -39,15 +39,14 @@ public class Tema {
 		this.assunto = assunto;
 	}
 
-	public short getStatus() {
+	public boolean isStatus() {
 		return status;
 	}
 
-	public void setStatus(short status) {
+	public void setStatus(boolean status) {
 		this.status = status;
 	}
 
-	
 	
 }
 
