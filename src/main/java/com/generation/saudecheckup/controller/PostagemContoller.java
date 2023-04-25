@@ -42,7 +42,8 @@ public class PostagemContoller {
 
 	@GetMapping("/{id}")
 	public ResponseEntity<Postagem> getById(@PathVariable Long id) {
-		return postagemRepository.findById(id).map(resposta -> ResponseEntity.ok(resposta))
+		return postagemRepository.findById(id)
+				.map(resposta -> ResponseEntity.ok(resposta))
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
 
@@ -62,7 +63,8 @@ public class PostagemContoller {
 	@PostMapping
 	public ResponseEntity<Postagem> post(@Valid @RequestBody Postagem postagem) {
 		if (temaRepository.existsById(postagem.getTema().getId()))
-			return ResponseEntity.status(HttpStatus.CREATED).body(postagemRepository.save(postagem));
+			return ResponseEntity.status(HttpStatus.CREATED)
+					.body(postagemRepository.save(postagem));
 
 		throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Tema não existe ", null);
 	
@@ -70,11 +72,13 @@ public class PostagemContoller {
 
 	@PutMapping
 	public ResponseEntity<Postagem> put(@Valid @RequestBody Postagem postagem) {
-		if (postagemRepository.existsById(postagem.getId())) {
-				return ResponseEntity.status(HttpStatus.OK).body(postagemRepository.save(postagem));
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Tema não existe ", null);
+		if (postagemRepository.existsById(postagem.getId()))
+				return ResponseEntity.status(HttpStatus.OK)
+						.body(postagemRepository.save(postagem));
+			
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Tema não existe ", null);
+	
 		}
-	}
 
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@DeleteMapping("/{id}")
