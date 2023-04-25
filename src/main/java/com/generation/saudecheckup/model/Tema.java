@@ -27,7 +27,6 @@ public class Tema {
 	@Size(min = 5, max = 100, message = "O atributo titulo deve ter no minimo 05 e no máximo 100 caracteres")
 	private String assunto;
 	
-	@NotBlank(message = "O Atributo status é Obrigatório!")
 	private boolean status;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tema", cascade = CascadeType.REMOVE)
