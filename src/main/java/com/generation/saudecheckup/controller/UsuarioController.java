@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.generation.saudecheckup.model.Usuario;
 import com.generation.saudecheckup.model.UsuarioLogin;
@@ -32,6 +33,7 @@ public class UsuarioController {
 	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
+
 	
 	@GetMapping("/all")
 	public ResponseEntity <List<Usuario>> getAll(){
@@ -49,9 +51,11 @@ public class UsuarioController {
 	
 	@PostMapping("/cadastrar")
 	public ResponseEntity<Usuario> postUsuario(@Valid @RequestBody Usuario usuario){
+
 		return usuarioService.cadastrarUsuario(usuario)
-				.map(resposta -> ResponseEntity.status(HttpStatus.CREATED).body(resposta))
-				.orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
+			.map(resposta -> ResponseEntity.status(HttpStatus.CREATED).body(resposta))
+			.orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
+	
 	}
 	
 	@PutMapping("/atualizar")

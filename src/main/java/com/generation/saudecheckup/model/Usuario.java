@@ -39,9 +39,6 @@ public class Usuario {
 	@Size(max = 5000, message = "O link da foto não pode ser maior do que 5000 caracteres")
     private String foto;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tema", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties("usuario")
-	private List<Postagem> postagem;
 
 	public Long getId() {
 		return id;
@@ -83,12 +80,4 @@ public class Usuario {
 		this.foto = foto;
 	}
 
-	public List<Postagem> getPostagem() {
-		return postagem;
-	}
-
-	public void setPostagem(List<Postagem> postagem) {
-		this.postagem = postagem;
-	}
-	
 }
