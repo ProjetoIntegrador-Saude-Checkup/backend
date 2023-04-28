@@ -66,7 +66,7 @@ public class PostagemContoller {
 			return ResponseEntity.status(HttpStatus.CREATED)
 					.body(postagemRepository.save(postagem));
 
-		throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Tema não existe ", null);
+		throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Tema não existe! ", null);
 	
 	}
 
@@ -76,7 +76,7 @@ public class PostagemContoller {
 				return ResponseEntity.status(HttpStatus.OK)
 						.body(postagemRepository.save(postagem));
 			
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Tema não existe ", null);
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Tema não existe! ", null);
 	
 		}
 

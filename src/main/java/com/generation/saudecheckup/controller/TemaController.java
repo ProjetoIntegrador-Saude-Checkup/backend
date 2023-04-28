@@ -24,7 +24,7 @@ import com.generation.saudecheckup.repository.TemaRepository;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/tema")
+@RequestMapping("/temas")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class TemaController {
 	
