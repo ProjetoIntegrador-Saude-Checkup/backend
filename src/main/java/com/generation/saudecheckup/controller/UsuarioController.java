@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.generation.saudecheckup.model.Usuario;
+import com.generation.saudecheckup.model.UsuarioLogin;
 import com.generation.saudecheckup.repository.UsuarioRepository;
 
 import jakarta.validation.Valid;
