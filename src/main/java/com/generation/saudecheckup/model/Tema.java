@@ -24,7 +24,7 @@ public class Tema {
 	private Long id;
 	
 	@NotBlank(message = "O Atributo assunto é Obrigatório!")
-	@Size(min = 5, max = 100, message = "O atributo titulo deve ter no minimo 05 e no máximo 100 caracteres")
+	@Size(min = 5, max = 100, message = "O atributo assunto deve ter no minimo 05 e no máximo 100 caracteres")
 	private String assunto;
 	
 	private boolean status;

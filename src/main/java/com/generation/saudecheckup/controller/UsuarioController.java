@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
+
 
 import com.generation.saudecheckup.model.Usuario;
 import com.generation.saudecheckup.model.UsuarioLogin;
@@ -35,7 +35,7 @@ public class UsuarioController {
 	private UsuarioRepository usuarioRepository;
 
 	
-	@GetMapping("/all")
+	@GetMapping
 	public ResponseEntity <List<Usuario>> getAll(){
 		
 		return ResponseEntity.ok(usuarioRepository.findAll());
