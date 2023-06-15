@@ -29,7 +29,7 @@ public class UsuarioService {
     @Autowired
     private AuthenticationManager authenticationManager;
     
-    String fotoPadrao = "https://imgur.com/L8gBUM4";
+    String fotoPadrao = "https://cdn-icons-png.flaticon.com/512/64/64572.png";
 
 	public Optional<Usuario> cadastrarUsuario(Usuario usuario) {
 	
