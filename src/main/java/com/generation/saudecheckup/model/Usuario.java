@@ -3,6 +3,7 @@ package com.generation.saudecheckup.model;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -31,7 +32,8 @@ public class Usuario {
 	@NotNull(message = "O Atributo usuário é Obrigatório!")
     @Email(message = "O Atributo Usuário deve ser um email válido!")
     private String usuario;
-
+	
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	@NotNull(message = "O Atributo senha é Obrigatório!")
     @Size(min = 8, message = "A senha deve ter no mínimo 8 caracteres")
     private String senha;
